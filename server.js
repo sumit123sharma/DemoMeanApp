@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const morgan = require('morgan')
 const UserRoute = require('./routes/user')
 var cors = require('cors')
+const path = require('path')
 
 const app = express();
 
@@ -20,6 +22,12 @@ app.use('', UserRoute)
 
 mongoose.Promise = global.Promise;
 
+app.use(morgan("dev"))
+app.use(express.static(path.join(__dirname , './client/build')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname , './client/build/dist/demo-angular/index.html'))
+})
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

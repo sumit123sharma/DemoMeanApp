@@ -2,11 +2,14 @@
   "name": "demonode",
   "version": "1.0.0",
   "description": "A basic sample backend project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "build": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "build": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm start\" \"npm run client\" "
   },
   "author": "Sumit Sharma",
   "license": "ISC",
@@ -15,6 +18,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^6.8.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
   }
 }
