@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:3000/",
+  "proxy": "http://localhost:7000/",
   "name": "demo-angular",
   "version": "0.0.0",
   "scripts": {
