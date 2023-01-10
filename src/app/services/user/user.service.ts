@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl: string = "http://localhost:3000/";
+  baseUrl: string = "http://localhost:7000/";
 
   constructor(
     private http: HttpClient
@@ -17,6 +17,9 @@ export class UserService {
   }
 
   getUser(): Observable<any> {
-    return this.http.get(this.baseUrl + 'getAllUser')
+    return this.http.get(this.baseUrl + 'getAllUser').pipe(map((res: any) => {
+       console.log("api res++++",res)
+      return res
+    }))
   }
 }

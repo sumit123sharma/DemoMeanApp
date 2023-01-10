@@ -3,8 +3,8 @@
     "",
     "\\.angular",
     "\\src",
-    "\\src\\app\\services\\user"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\src\\index.html",
+  "SelectedNode": "\\src\\app\\services",
   "PreviewInSolutionExplorer": false
 }
